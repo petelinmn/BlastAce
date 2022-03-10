@@ -5,12 +5,20 @@ VisualStudioVersion = 17.0.32112.339
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{6B047AB4-9720-407F-ADE2-7B76758DE15C}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Consent.Api", "Services\Consent.Api\Consent.Api.csproj", "{23BC2E08-38D2-4DDA-A21E-2D20761A086C}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{A66FDD8D-1B70-43C4-BB97-40BAF6108B34}"
 	ProjectSection(SolutionItems) = preProject
 		.gitignore = .gitignore
 	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Consent", "Consent", "{F9343DE5-4665-40D0-9E0B-95CD45361AEE}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Consent.Api", "Services\Consent\Consent.Api\Consent.Api.csproj", "{E8A3AF1B-8A82-4C17-A438-61CE1B51AFEC}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Consent.Actors.Contract", "Services\Consent\Consent.Actors.Contract\Consent.Actors.Contract.csproj", "{31F59BFE-737F-495B-8E4B-A95347F517EB}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Consent.Actors", "Services\Consent\Consent.Actors\Consent.Actors.csproj", "{8171BCE1-46C3-4D57-83FB-763D511813A9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlastAce.Client", "BlastAce.Client\BlastAce.Client.csproj", "{52F34951-C8CF-440F-B32E-9ED1733CCDA4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -18,16 +26,31 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{23BC2E08-38D2-4DDA-A21E-2D20761A086C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{23BC2E08-38D2-4DDA-A21E-2D20761A086C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{23BC2E08-38D2-4DDA-A21E-2D20761A086C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{23BC2E08-38D2-4DDA-A21E-2D20761A086C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E8A3AF1B-8A82-4C17-A438-61CE1B51AFEC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E8A3AF1B-8A82-4C17-A438-61CE1B51AFEC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E8A3AF1B-8A82-4C17-A438-61CE1B51AFEC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E8A3AF1B-8A82-4C17-A438-61CE1B51AFEC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{31F59BFE-737F-495B-8E4B-A95347F517EB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{31F59BFE-737F-495B-8E4B-A95347F517EB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{31F59BFE-737F-495B-8E4B-A95347F517EB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{31F59BFE-737F-495B-8E4B-A95347F517EB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8171BCE1-46C3-4D57-83FB-763D511813A9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8171BCE1-46C3-4D57-83FB-763D511813A9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8171BCE1-46C3-4D57-83FB-763D511813A9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8171BCE1-46C3-4D57-83FB-763D511813A9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{52F34951-C8CF-440F-B32E-9ED1733CCDA4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{52F34951-C8CF-440F-B32E-9ED1733CCDA4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{52F34951-C8CF-440F-B32E-9ED1733CCDA4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{52F34951-C8CF-440F-B32E-9ED1733CCDA4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{23BC2E08-38D2-4DDA-A21E-2D20761A086C} = {6B047AB4-9720-407F-ADE2-7B76758DE15C}
+		{F9343DE5-4665-40D0-9E0B-95CD45361AEE} = {6B047AB4-9720-407F-ADE2-7B76758DE15C}
+		{E8A3AF1B-8A82-4C17-A438-61CE1B51AFEC} = {F9343DE5-4665-40D0-9E0B-95CD45361AEE}
+		{31F59BFE-737F-495B-8E4B-A95347F517EB} = {F9343DE5-4665-40D0-9E0B-95CD45361AEE}
+		{8171BCE1-46C3-4D57-83FB-763D511813A9} = {F9343DE5-4665-40D0-9E0B-95CD45361AEE}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {6612564A-75E4-4E0D-AC33-832DDB03051B}

@@ -60,6 +60,34 @@ console.log(policies)
   )
 }
 
+const PolicySigned = ({appId, flowId, userId}) => {
+  const [policies, setPolicies] = useState([]);
+
+  useEffect(() => {
+    fetch(`https://localhost:7042/api/v1/decisions2/${appId}/${flowId}/${userId}`)
+      .then(x => x.json())
+      .then(policies => {
+        setPolicies(policies);
+        console.log(policies)
+        //if (onChangeFlow) {
+          //onChangeFlow(decisions[0])
+        //}
+      })
+  }, [appId, flowId, userId])
+console.log(policies)
+  return (
+    <div>
+      <ul>
+        {policies?.map(p => (
+          <li>
+            {p.policy.name}
+          </li>
+        ))}
+      </ul>
+    </div>
+  )
+}
+
 
 const ConsentBoard = ({appId}) => {
 
@@ -89,7 +117,17 @@ const ConsentBoard = ({appId}) => {
 
       <Flows onChangeFlow={flow => setFlow(flow)} />
 
-      <PolicyUnsigned appId={appId} userId={'QQQQ'} flowId={flow?.name} />
+      <h2>Policies</h2>
+      <div className="policies-board">
+        <div>
+          <h5>Unsigned</h5>
+          <PolicyUnsigned appId={appId} userId={'QQQQ'} flowId={flow?.name} />
+        </div>
+        <div>
+          <h5>Signed</h5>
+          <PolicySigned appId={appId} userId={'QQQQ'} flowId={flow?.name} />
+        </div>
+      </div>
     </div>
   )
 }

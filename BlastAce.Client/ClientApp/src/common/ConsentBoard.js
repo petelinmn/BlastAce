@@ -6,7 +6,7 @@ const Flows = ({onChangeFlow}) => {
   const [flows, setFlows] = useState()
 
   useEffect(() => {
-    fetch('https://localhost:7299/service/v1/flow')
+    fetch('https://localhost:7042/service/v1/flow')
       .then(x => x.json())
       .then(flows => {
         setFlows(flows);
@@ -36,7 +36,7 @@ const PolicyUnsigned = ({appId, flowId, userId}) => {
   const [policies, setPolicies] = useState([]);
 
   useEffect(() => {
-    fetch(`https://localhost:7299/api/v1/decisions3/${appId}/${flowId}/${userId}`)
+    fetch(`https://localhost:7042/api/v1/decisions3/${appId}/${flowId}/${userId}`)
       .then(x => x.json())
       .then(policies => {
         setPolicies(policies);
@@ -67,7 +67,7 @@ const ConsentBoard = ({appId}) => {
   /*const [decisions, setDecisions] = useState([])
 
   useEffect(() => {
-    fetch(`https://localhost:7299/api/v1/decisions/1/1`)
+    fetch(`https://localhost:7042/api/v1/decisions/1/1`)
       .then(x => x.json())
       .then(d => console.log(d) || setDecisions(d))
   }, [])*/

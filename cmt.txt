@@ -1,1 +1,7 @@
-localhost:7299/swagger
+GET https://localhost:7299/api/v1/decisions
+content-type: application/json
+
+{
+  "userId": "QQQQ",
+  "appId": 0
+}

@@ -15,4 +15,19 @@ code {
 
 .policies-board {
   display: inline-flex;
+  justify-content: space-between;
+  width: 500px;
+}
+
+.flow-control {
+  display: inline-flex;
+}
+
+.flow-control select {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.policy-list {
+  cursor: pointer;
 }

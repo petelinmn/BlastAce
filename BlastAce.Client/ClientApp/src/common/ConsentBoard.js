@@ -18,7 +18,7 @@ const Flows = ({onChangeFlow}) => {
 
   return (
     <div>
-      <select onChange={e => {
+      <select className='btn' onChange={e => {
         onChangeFlow(flows.find(f => f.name === e.target.value))
       }}>
         {flows?.map(flow => (
@@ -40,18 +40,41 @@ const PolicyUnsigned = ({appId, flowId, userId}) => {
       .then(x => x.json())
       .then(policies => {
         setPolicies(policies);
-        console.log(policies)
+
         //if (onChangeFlow) {
           //onChangeFlow(decisions[0])
         //}
       })
   }, [appId, flowId, userId])
-console.log(policies)
+
   return (
-    <div>
+    <div className='policy-list'>
       <ul>
         {policies?.map(p => (
-          <li>
+          <li onClick={() => {
+            if (window.confirm('Should sign document?')) {
+              console.log('start signing')
+
+              fetch('https://localhost:7042/api/v1/consent', {
+                method: 'POST', // *GET, POST, PUT, DELETE, etc.
+                mode: 'cors', // no-cors, *cors, same-origin
+                headers: {
+                  'Content-Type': 'application/json'
+                  // 'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                body: JSON.stringify({
+                  userId: userId,
+                  flowId: flowId,
+                  appId: appId,
+                  policyId: p.id
+                })
+              })
+                .then(x => x.json())
+                .then(data => {
+                  console.log(data)
+                })
+            }
+          }}>
             {p.policy.name}
           </li>
         ))}
@@ -68,7 +91,7 @@ const PolicySigned = ({appId, flowId, userId}) => {
       .then(x => x.json())
       .then(policies => {
         setPolicies(policies);
-        console.log(policies)
+
         //if (onChangeFlow) {
           //onChangeFlow(decisions[0])
         //}
@@ -76,7 +99,7 @@ const PolicySigned = ({appId, flowId, userId}) => {
   }, [appId, flowId, userId])
 console.log(policies)
   return (
-    <div>
+    <div className='policy-list'>
       <ul>
         {policies?.map(p => (
           <li>
@@ -92,15 +115,6 @@ console.log(policies)
 const ConsentBoard = ({appId}) => {
 
   const [flow, setFlow] = useState();
-  /*const [decisions, setDecisions] = useState([])
-
-  useEffect(() => {
-    fetch(`https://localhost:7042/api/v1/decisions/1/1`)
-      .then(x => x.json())
-      .then(d => console.log(d) || setDecisions(d))
-  }, [])*/
-
-  console.log(flow)
 
   if (!flow)
     return (
@@ -113,10 +127,10 @@ const ConsentBoard = ({appId}) => {
   return (
     <div>
       <h1>Application: {appId}</h1>
-      <h1>Flow: {flow?.name}</h1>
-
-      <Flows onChangeFlow={flow => setFlow(flow)} />
-
+      <div className='flow-control'>
+        <h1>Flow: </h1>
+        <Flows onChangeFlow={flow => setFlow(flow)} />
+      </div>
       <h2>Policies</h2>
       <div className="policies-board">
         <div>
